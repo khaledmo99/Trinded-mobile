@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Linking } from 'react-native';
+import React from "react";
+import {View, Text, TextInput, TouchableOpacity, Linking} from "react-native";
 
 export default function LoginForm() {
   return (
@@ -14,10 +14,7 @@ export default function LoginForm() {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Mot de passe"
-          />
+          <TextInput style={styles.input} placeholder="Mot de passe" />
         </View>
       </View>
     </>
@@ -27,20 +24,21 @@ export default function LoginForm() {
 const styles = {
   formContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: 18,
-    borderBottomColor: '#EC5A13',
-    borderBottomWidth:1.5,
   },
   input: {
     flex: 1,
     borderBottomWidth: 1,
-    borderBottomColor: '#5e5e5e',
+    borderWidth: 3,
+    borderColor: "#EC5A13",
     paddingLeft: 30,
+    marginLeft: 13,
+    marginRight: 13,
   },
 };

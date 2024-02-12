@@ -1,38 +1,42 @@
 import React from "react";
 import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import home from "./pages/home";
 import buy from "./pages/buy";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import NavbarMobile from "./components/Layout/Footer";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="register"
-          component={Register}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="home"
-          component={home}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="buy"
-          component={buy}
-          options={{headerShown: true}}
-        />
-      </Stack.Navigator>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <Tab.Navigator tabBar={(props) => <NavbarMobile {...props} />}>
+          <Tab.Screen
+            name="register"
+            component={Register}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="Login"
+            component={Login}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="home"
+            component={home}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="buy"
+            component={buy}
+            options={{headerShown: true}}
+          />
+        </Tab.Navigator>
+      </GestureHandlerRootView>
     </NavigationContainer>
   );
 }
